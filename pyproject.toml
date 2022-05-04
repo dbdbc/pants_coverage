@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "mypkg"
+version = "0"
+description = "mypkg"
+authors = ["Dimitrios Bariamis"]
+license = "MIT License"
+classifiers = [
+    "Programming Language :: Python :: 3.8"
+]
+packages = [
+    { include = "mypkg", from = "source" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "5.0.1"
+pytest-runner = "5.2"
+pytest-cov = "2.10.0"
+pytest-xdist = "1.34.0"
+pytest-randomly = "3.4.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.report]
+ignore_errors = true

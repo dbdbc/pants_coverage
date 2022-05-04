@@ -1,0 +1,37 @@
+# Extract from Python template provided by .ignore support plugin (hsz.mobi)
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+/build/
+/dist/
+*.egg-info/
+/.eggs/
+
+# IDEs
+/.idea/
+/.vscode/*
+!/.vscode/*recommended.json
+!/.vscode/extensions.json
+*.swp
+/.vimspector.json
+
+# (Temporary) development & test directories
+.cache/
+.pytest_cache
+.hypothesis
+.coverage
+
+# Pants workspace files
+/.pants.d/
+/dist/
+/.pids
+/.pants.workdir.file_lock*
+/.pants.rc
+/.git
+
+# Test environment in Jenkins
+/test_env

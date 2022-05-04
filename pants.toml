@@ -1,0 +1,42 @@
+[GLOBAL]
+pants_version = "2.10.0"
+backend_packages = [
+  "pants.backend.python",
+]
+use_deprecated_python_macros = false
+
+[source]
+root_patterns = [
+  '/source',
+  '/.',
+]
+
+[python]
+interpreter_constraints = ["CPython>=3.8,<3.10"]
+
+[python-infer]
+inits = true
+
+[pytest]
+lockfile = "pants-pytest.lock"
+version = "pytest"
+extra_requirements = [
+  "pytest-runner",
+  "pytest-cov",
+  "pytest-xdist",
+  "pytest-randomly",
+]
+
+[test]
+# Allow passing CUDA_VISIBLE_DEVICES from environment to tests
+extra_env_vars = ["CUDA_VISIBLE_DEVICES"]
+
+[subprocess-environment]
+# Allow passing the proxy variables to the subprocesses
+env_vars.add = ["http_proxy", "https_proxy"]
+
+[anonymous-telemetry]
+enabled = false
+
+[coverage-py]
+report = ["console", "raw"]
