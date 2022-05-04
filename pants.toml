@@ -14,16 +14,6 @@ root_patterns = [
 [python]
 interpreter_constraints = ["CPython>=3.8,<3.10"]
 
-[pytest]
-lockfile = "pants-pytest.lock"
-version = "pytest"
-extra_requirements = [
-  "pytest-runner",
-  "pytest-cov",
-  "pytest-xdist",
-  "pytest-randomly",
-]
-
 [subprocess-environment]
 # Allow passing the proxy variables to the subprocesses
 env_vars.add = ["http_proxy", "https_proxy"]
