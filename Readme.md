@@ -2,9 +2,12 @@
 
 Install as follows:
 
+    $ python3 --version
+    Python 3.8.5
     $ python3 -m venv test_env
     $ source test_env/bin/activate
-    $ pip install -U pip wheel poetry
+    $ pip install -U pip
+    $ pip install -U wheel poetry
     $ poetry install
 
 Run tests through pants:

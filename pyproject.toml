@@ -15,11 +15,8 @@ packages = [
 python = ">=3.8,<3.10"
 
 [tool.poetry.dev-dependencies]
-pytest = "5.0.1"
-pytest-runner = "5.2"
-pytest-cov = "2.10.0"
-pytest-xdist = "1.34.0"
-pytest-randomly = "3.4.1"
+pytest = "^7.1.2"
+coverage = {version = "^6.3.2", extras = ["toml"] }
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
