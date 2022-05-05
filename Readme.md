@@ -1,4 +1,4 @@
-# Minimal example to show a possible bug with pants+coverage
+# Minimal example to show a possible bugs with pants+coverage
 
 Install as follows:
 
@@ -14,16 +14,15 @@ Run tests through pants:
 
     $ ./pants test --test-use-coverage ::
     ...
-    ✓ tests/test_placeholder.py:tests0 succeeded in 0.53s.
+    ✓ tests/test_placeholder.py:tests0 succeeded in 0.28s.
 
     Wrote raw coverage report to `dist/coverage/python`
 
     Name                          Stmts   Miss  Cover
     -------------------------------------------------
     source/mypkg/placeholder.py       2      0   100%
-    tests/test_placeholder.py         3      0   100%
     -------------------------------------------------
-    TOTAL                             5      0   100%
+    TOTAL                             2      0   100%
 
 Check coverage directly:
 
@@ -31,6 +30,16 @@ Check coverage directly:
     Name                          Stmts   Miss  Cover
     -------------------------------------------------
     source/mypkg/placeholder.py       2      2     0%
-    tests/test_placeholder.py         3      3     0%
     -------------------------------------------------
-    TOTAL                             5      5     0%
+    TOTAL                             2      2     0%
+
+## Issue 1:
+
+The file `source/mypkg/uncovered.py` is not shown in the coverage report, as no test depends on it. This leads to
+the coverage being erroneously calculated as 100%, when in reality should be 50% (2 statements in `placeholder.py`
+covered, 2 statements in `uncovered.py` not covered).
+
+## Issue 2:
+
+The coverage database `dist/coverage/python/.coverage` is not read/parsed correctly by `coverage` outside of `pants`,
+always showing a coverage of 0%.
